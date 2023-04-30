@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import user from  "@testing-library/react"
 import App from './App';
 
-test('renders learn react link', () => {
+test('shows 6 products by default',async()=>{
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headings = await screen.findAllByRole('heading');
+  expect(headings).toHaveLength(6)
 });
+
+test('cliking on the button loads 6 more products',async()=>{
+
+})
